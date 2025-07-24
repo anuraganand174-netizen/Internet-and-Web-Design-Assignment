@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Even or Odd Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(203, 124, 181, 0.901);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #0d131abe;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Even or Odd Checker</h2>
+    <br>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="checkEvenOdd()">Check</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkEvenOdd() {
+      const input = document.getElementById("numberInput").value;
+      const result = document.getElementById("result");
+
+      if (input === "") {
+        result.innerText = "Please enter a number.";
+        result.style.color = "red";
+        return;
+      }
+
+      const num = parseInt(input);
+
+      if (isNaN(num)) {
+        result.innerText = "Invalid input!";
+        result.style.color = "red";
+      } else if (num % 2 === 0) {
+        result.innerText = num + " is an Even number.";
+        result.style.color = "green";
+      } else {
+        result.innerText = num + " is an Odd number.";
+        result.style.color = "blue";
+      }
+    }
+  </script>
+</body>
+</html>
